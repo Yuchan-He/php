@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>upload file</title>
+</head>
+<body>
+	<h2>单个文件上传</h2>
+<!--php submit 画面遷移  新しいページに飛ぶように設定：target="_blank"
+href（hypertext reference） targetの現れるパータンは二つ；①【_self 】；ディフォルトの開け方②【_blank】；新しいページで開く③当ページの移動 -->
+
+submitすべきの内容に対して、すべてをnameを設定すべき、PHPへのデータは配列の形で保存するから。
+
+<!-- 今の画面に飛ぶなら、targetは設定しなくていい　 -->　
+	<form method="POST" enctype="multipart/form-data" action="13_upload_file.php" target="_blank">
+<!-- 	<form method="POST"  action="13_upload_file.php"> -->
+		<input type="file" name="image"/>
+		<input type="submit" name="btn" value="upload file" />
+		<hr/>
+		表示できるけど、inputの間違い書き方，
+		下記を無効にすべき、upload file が失敗、sumbitのボタンが全面的なファイルを提出する。前者に一つファイルがある、後者一つファイルがないと、後者のデータが前者のデータを上書きする。
+	<!-- 	<input type="file" name="image"></input>
+		<input type="submit" name="btn" value="upload file" ></input> -->
+	
+	<h2>不同属性多个文件上传</h2>
+	<form method="POST" enctype="multipart/form-data" action="13_upload_file.php" target="_blank">
+		<input type="file" name="image1"/>
+		<input type="file" name="image2"/>
+		<input type="file" name="image3"/>
+		<input type="submit" name="btn" value="upload fileS" />
+	</form>
+
+
+	</form>
+	<h2>同个属性多个文件上传</h2>
+	<form method="POST" enctype="multipart/form-data" action="13_upload_file.php" target="_blank">
+		<input type="file" name="image[]"/>
+		<input type="file" name="image[]"/>
+		<input type="file" name="image[]"/>
+		<input type="submit" name="btn" value="upload fileS" />
+	</form>
+	<h2>14_upload_function的函数封装</h2>
+	<form method="POST" enctype="multipart/form-data" action="14_upload_function.php" target="_blank">
+		<input type="file" name="image_function"/>
+		<input type="submit" name="btn" value="upload fileS" />
+	</form>
+
+</body>
+</html>
